@@ -33,11 +33,10 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-            }
-
+            }       
             thisReader.Close();
             ThisConnection.Close();
-            textBox1.Text += res;
+            textBox1.Text += res;       
         }
 
         private void Products_Click(object sender, EventArgs e)
@@ -82,6 +81,12 @@ namespace VitebskServices
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
+        }
+
+        private void buttonMap_Click(object sender, EventArgs e)
+        {
+            MapForm f = new MapForm();
+            f.Show();
         }
     }
 }
