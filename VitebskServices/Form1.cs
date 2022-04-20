@@ -35,6 +35,7 @@ namespace VitebskServices
             thisCommand.CommandText = "SELECT * FROM `hairdressing` WHERE `Service` = 'Парикмахерская'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
+            string cx = string.Empty;
             while (thisReader.Read())
             {
                 res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
@@ -42,6 +43,13 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
+               GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
+                marker.ToolTipText = Convert.ToString(thisReader["Name"]);
+                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                markers.Markers.Add(marker);
+                gMapControl1.Overlays.Add(markers);
             }       
             thisReader.Close();
             ThisConnection.Close();
@@ -102,25 +110,7 @@ namespace VitebskServices
             flag2 = true;
         }
 
-        private static void Coordinate(double coordinate)
-        {
-            var mc = new Form1();
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
-            ThisConnection.Open();
-            MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = "SELECT * FROM `hairdressing` WHERE `Name` = 'ВЕНЕРА'";
-            MySqlDataReader thisReader = thisCommand.ExecuteReader();
-            longtitude += thisReader["longtitude"];
-            longtitude1 = Convert.ToDouble(longtitude);
-            GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(longtitude1, 30.22275030612946));
-            marker.Tag = 1;
-            marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
-            marker.ToolTipText = "Евроопт";
-            marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
-            GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(mc.gMapControl1, "markers");
-            markers.Markers.Add(marker);
-            mc.gMapControl1.Overlays.Add(markers);
-        }
+       
         private void buttonMap_Click(object sender, EventArgs e)
         {
             if (flag1 == true)
