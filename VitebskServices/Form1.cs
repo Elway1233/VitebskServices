@@ -14,12 +14,6 @@ namespace VitebskServices
     public partial class Form1 : Form
     {
         private GMap.NET.WindowsForms.GMapMarker selectedMarker;
-        public static bool flag = false;
-        public static bool flag1 = false;
-        public static bool flag2 = false;
-        public static string latitude = string.Empty;
-        public static string longtitude = string.Empty;
-        public static double longtitude1 = 0;
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +29,6 @@ namespace VitebskServices
             thisCommand.CommandText = "SELECT * FROM `hairdressing` WHERE `Service` = 'Парикмахерская'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
-            string cx = string.Empty;
             while (thisReader.Read())
             {
                 res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
@@ -53,10 +46,7 @@ namespace VitebskServices
             }       
             thisReader.Close();
             ThisConnection.Close();
-            textBox1.Text += res;
-            flag = true;
-            flag1 = false;
-            flag2 = false;
+            textBox1.Text += res;         
         }
 
         private void Products_Click(object sender, EventArgs e)
@@ -79,9 +69,6 @@ namespace VitebskServices
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
-            flag = false;
-            flag1 = true;
-            flag2 = false;
 
         }
 
@@ -105,33 +92,12 @@ namespace VitebskServices
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
-            flag = false;
-            flag1 = false;
-            flag2 = true;
         }
 
        
         private void buttonMap_Click(object sender, EventArgs e)
         {
-            if (flag1 == true)
-            {
-                GMap.NET.WindowsForms.GMapMarker marker1 = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(longtitude1, 30.22275030612946));
-                marker1.Tag = 1;
-                marker1.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker1);
-                marker1.ToolTipText = "Евроопт";
-                marker1.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
-                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
-                markers.Markers.Add(marker1);
-                gMapControl1.Overlays.Add(markers);
-            }
-            if (flag == true)
-            {
-                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(55.180043903445664, 30.22275030612946));
-                marker.Tag = 1;
-                marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
-                marker.ToolTipText = "Евроопт";
-                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
-            }
+
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
