@@ -34,9 +34,10 @@
             this.Products = new System.Windows.Forms.ToolStripMenuItem();
             this.Entertainment = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.buttonMap = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonDel = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,8 +59,8 @@
             this.Products,
             this.Entertainment});
             this.Services.Name = "Services";
-            this.Services.Size = new System.Drawing.Size(57, 20);
-            this.Services.Text = "Услуги";
+            this.Services.Size = new System.Drawing.Size(91, 20);
+            this.Services.Text = "Выбор места";
             // 
             // Head
             // 
@@ -71,14 +72,14 @@
             // Products
             // 
             this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(168, 22);
+            this.Products.Size = new System.Drawing.Size(180, 22);
             this.Products.Text = "Продукты";
             this.Products.Click += new System.EventHandler(this.Products_Click);
             // 
             // Entertainment
             // 
             this.Entertainment.Name = "Entertainment";
-            this.Entertainment.Size = new System.Drawing.Size(168, 22);
+            this.Entertainment.Size = new System.Drawing.Size(180, 22);
             this.Entertainment.Text = "Развлечения";
             this.Entertainment.Click += new System.EventHandler(this.Entertainment_Click);
             // 
@@ -91,15 +92,15 @@
             this.textBox1.Size = new System.Drawing.Size(602, 405);
             this.textBox1.TabIndex = 1;
             // 
-            // buttonMap
+            // buttonAdd
             // 
-            this.buttonMap.Location = new System.Drawing.Point(1170, 3);
-            this.buttonMap.Name = "buttonMap";
-            this.buttonMap.Size = new System.Drawing.Size(119, 23);
-            this.buttonMap.TabIndex = 3;
-            this.buttonMap.Text = "Показать на карте";
-            this.buttonMap.UseVisualStyleBackColor = true;
-            this.buttonMap.Click += new System.EventHandler(this.buttonMap_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(110, 3);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(119, 23);
+            this.buttonAdd.TabIndex = 3;
+            this.buttonAdd.Text = "Добавить место";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // gMapControl1
             // 
@@ -134,13 +135,23 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // buttonDel
+            // 
+            this.buttonDel.Location = new System.Drawing.Point(260, 3);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(119, 23);
+            this.buttonDel.TabIndex = 6;
+            this.buttonDel.Text = "Удалить место";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 582);
+            this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.gMapControl1);
-            this.Controls.Add(this.buttonMap);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
@@ -163,9 +174,10 @@
         private System.Windows.Forms.ToolStripMenuItem Products;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem Entertainment;
-        private System.Windows.Forms.Button buttonMap;
+        private System.Windows.Forms.Button buttonAdd;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonDel;
     }
 }
 

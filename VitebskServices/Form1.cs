@@ -26,7 +26,7 @@ namespace VitebskServices
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = "SELECT * FROM `hairdressing` WHERE `Service` = 'Парикмахерская'";
+            thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Парикмахерская'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
             while (thisReader.Read())
@@ -34,7 +34,7 @@ namespace VitebskServices
                 res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
                 res += ("Адрес: ") + thisReader["Address"] + Environment.NewLine;
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
-                res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
+                res += ("График работы: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
                 GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
@@ -55,7 +55,7 @@ namespace VitebskServices
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = "SELECT * FROM `Products` WHERE `Service` = 'Продукты'";
+            thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Продукты'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
             while (thisReader.Read())
@@ -78,7 +78,7 @@ namespace VitebskServices
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = "SELECT * FROM `Entertainment` WHERE `Service` = 'Развлечения'";
+            thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Развлечения'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
             while (thisReader.Read())
@@ -95,9 +95,10 @@ namespace VitebskServices
         }
 
        
-        private void buttonMap_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-
+            AddForm newForm = new AddForm();
+            newForm.Show();
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
