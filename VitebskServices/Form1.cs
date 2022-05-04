@@ -20,9 +20,13 @@ namespace VitebskServices
             gMapControl1.MouseUp += gMapControl1_MouseUp;
             gMapControl1.MouseDown += gMapControl1_MouseDown;
         }
+        int hair = 0;
+        int prod = 0;
+        int ent = 0;
         int search = 0;
-        private void Head_Click(object sender, EventArgs e)
+        private void Hair_Click(object sender, EventArgs e)
         {
+            hair = 1;
             textBox1.Clear();
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
@@ -44,7 +48,7 @@ namespace VitebskServices
                 marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
-                if(search > 0)
+                if(search > 0 || prod > 0 || ent > 0)
                 {
                   gMapControl1.Overlays.Clear();
                 }
@@ -52,10 +56,12 @@ namespace VitebskServices
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
+            hair = 0;
         }
 
         private void Products_Click(object sender, EventArgs e)
         {
+            prod = 1;
             textBox1.Clear();
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
@@ -77,15 +83,21 @@ namespace VitebskServices
                 marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
+                if (search > 0 || hair > 0 || ent > 0)
+                {
+                    gMapControl1.Overlays.Clear();
+                }
             }  
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
+            prod = 0;
 
         }
 
         private void Entertainment_Click(object sender, EventArgs e)
         {
+            ent = 1;
             textBox1.Clear();
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
@@ -107,10 +119,15 @@ namespace VitebskServices
                 marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
+                if (search > 0 || hair > 0 || prod > 0)
+                {
+                    gMapControl1.Overlays.Clear();
+                }
             }
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
+            ent = 0;
         }
 
 
@@ -183,7 +200,7 @@ namespace VitebskServices
                 marker.ToolTipText = Convert.ToString(thisReader["Name"]);
                 marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
-                Head_Click(sender, e);
+                Hair_Click(sender, e);
                 gMapControl1.Overlays.Add(markers);
             }
             thisReader.Close();

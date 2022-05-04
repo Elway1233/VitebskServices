@@ -62,7 +62,6 @@
     <Compile Include="AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB.cs" />
     <Compile Include="DeleteForm.cs">
       <SubType>Form</SubType>
     </Compile>

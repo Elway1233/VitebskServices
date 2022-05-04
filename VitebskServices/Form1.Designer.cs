@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Services = new System.Windows.Forms.ToolStripMenuItem();
-            this.Head = new System.Windows.Forms.ToolStripMenuItem();
+            this.Hair = new System.Windows.Forms.ToolStripMenuItem();
             this.Products = new System.Windows.Forms.ToolStripMenuItem();
             this.Entertainment = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -59,19 +59,19 @@
             // Services
             // 
             this.Services.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Head,
+            this.Hair,
             this.Products,
             this.Entertainment});
             this.Services.Name = "Services";
             this.Services.Size = new System.Drawing.Size(91, 20);
             this.Services.Text = "Выбор места";
             // 
-            // Head
+            // Hair
             // 
-            this.Head.Name = "Head";
-            this.Head.Size = new System.Drawing.Size(180, 22);
-            this.Head.Text = "Парикмахерские";
-            this.Head.Click += new System.EventHandler(this.Head_Click);
+            this.Hair.Name = "Hair";
+            this.Hair.Size = new System.Drawing.Size(180, 22);
+            this.Hair.Text = "Парикмахерские";
+            this.Hair.Click += new System.EventHandler(this.Hair_Click);
             // 
             // Products
             // 
@@ -217,7 +217,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Services;
-        private System.Windows.Forms.ToolStripMenuItem Head;
+        private System.Windows.Forms.ToolStripMenuItem Hair;
         private System.Windows.Forms.ToolStripMenuItem Products;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem Entertainment;
