@@ -20,17 +20,25 @@ namespace VitebskServices
             gMapControl1.MouseUp += gMapControl1_MouseUp;
             gMapControl1.MouseDown += gMapControl1_MouseDown;
         }
+        int hair = 0;
+        int prod = 0;
+        int ent = 0;
         int del = 0;
         int search = 0;
+        int show = 0;
         private void Hair_Click(object sender, EventArgs e)
         {
+            hair = 1;
+            prod = 0;
+            ent = 0;
+            show = 1;
             textBox1.Clear();
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Парикмахерская'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
-            string res = string.Empty;        
+            string res = string.Empty;
             while (thisReader.Read())
             {
                 res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
@@ -45,9 +53,9 @@ namespace VitebskServices
                 marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
-                if(search > 0 || del > 0)
+                if (search > 0 || del > 0)
                 {
-                  gMapControl1.Overlays.Clear();
+                    gMapControl1.Overlays.Clear();
                 }
             }
             thisReader.Close();
@@ -57,6 +65,10 @@ namespace VitebskServices
 
         private void Products_Click(object sender, EventArgs e)
         {
+            prod = 1;
+            hair = 0;
+            ent = 0;
+            show = 2;
             textBox1.Clear();
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
@@ -82,7 +94,7 @@ namespace VitebskServices
                 {
                     gMapControl1.Overlays.Clear();
                 }
-            }  
+            }
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
@@ -91,23 +103,24 @@ namespace VitebskServices
 
         private void Entertainment_Click(object sender, EventArgs e)
         {
+            ent = 1;
+            hair = 0;
+            prod = 0;
+            show = 3;
             textBox1.Clear();
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Развлечения'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
-            string res = string.Empty;           
+            string res = string.Empty;
             while (thisReader.Read())
             {
-                if (del < 0)
-                {
-                    res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
-                    res += ("Адрес: ") + thisReader["Address"] + Environment.NewLine;
-                    res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
-                    res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
-                    res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-                }
+                res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
+                res += ("Адрес: ") + thisReader["Address"] + Environment.NewLine;
+                res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
+                res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
+                res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
                 GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
                 GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
                 marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
@@ -219,10 +232,50 @@ namespace VitebskServices
         private void buttonDelMark_Click(object sender, EventArgs e)
         {
             del = 1;
-            Hair_Click(sender, e);
-            Products_Click(sender, e);
-            Entertainment_Click(sender, e);
+            if (hair > 0)
+            {
+                Hair_Click(sender, e);
+                show = 1;
+            }
+            if (prod > 0)
+            {
+                Products_Click(sender, e);
+                show = 2;
+            }
+            if (ent > 0)
+            {
+                Entertainment_Click(sender, e);
+                show = 3;
+            }
+            hair = 0;
+            prod = 0;
+            ent = 0;
             del = 0;
+        }
+
+        private void buttonShowMark_Click(object sender, EventArgs e)
+        {
+            if (show == 1)
+            {
+                Hair_Click(sender, e);
+                hair = 1;
+                prod = 0;
+                ent = 0;
+            }
+            if (show == 2)
+            {
+                Products_Click(sender, e);
+                hair = 0;
+                prod = 1;
+                ent = 0;
+            }
+            if (show == 3)
+            {
+                Entertainment_Click(sender, e);
+                hair = 0;
+                prod = 0;
+                ent = 1;
+            }
         }
     }
 }

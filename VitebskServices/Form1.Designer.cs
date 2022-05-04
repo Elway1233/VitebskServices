@@ -43,6 +43,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonDelMark = new System.Windows.Forms.Button();
+            this.buttonShowMark = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -194,15 +195,26 @@
             this.buttonDelMark.Name = "buttonDelMark";
             this.buttonDelMark.Size = new System.Drawing.Size(144, 23);
             this.buttonDelMark.TabIndex = 11;
-            this.buttonDelMark.Text = "Удалить все маркеры";
+            this.buttonDelMark.Text = "Скрыть маркеры";
             this.buttonDelMark.UseVisualStyleBackColor = true;
             this.buttonDelMark.Click += new System.EventHandler(this.buttonDelMark_Click);
+            // 
+            // buttonShowMark
+            // 
+            this.buttonShowMark.Location = new System.Drawing.Point(510, 3);
+            this.buttonShowMark.Name = "buttonShowMark";
+            this.buttonShowMark.Size = new System.Drawing.Size(144, 23);
+            this.buttonShowMark.TabIndex = 12;
+            this.buttonShowMark.Text = "Показать маркеры";
+            this.buttonShowMark.UseVisualStyleBackColor = true;
+            this.buttonShowMark.Click += new System.EventHandler(this.buttonShowMark_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 582);
+            this.Controls.Add(this.buttonShowMark);
             this.Controls.Add(this.buttonDelMark);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
@@ -242,6 +254,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonDelMark;
+        private System.Windows.Forms.Button buttonShowMark;
     }
 }
 
