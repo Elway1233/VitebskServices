@@ -20,6 +20,7 @@ namespace VitebskServices
             gMapControl1.MouseUp += gMapControl1_MouseUp;
             gMapControl1.MouseDown += gMapControl1_MouseDown;
         }
+        int search = 0;
         private void Head_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
@@ -28,7 +29,7 @@ namespace VitebskServices
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Парикмахерская'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
-            string res = string.Empty;
+            string res = string.Empty;        
             while (thisReader.Read())
             {
                 res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
@@ -36,17 +37,21 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работы: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-               GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
                 GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
                 marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
                 marker.ToolTipText = Convert.ToString(thisReader["Name"]);
                 marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
-            }       
+                if(search > 0)
+                {
+                  gMapControl1.Overlays.Clear();
+                }
+            }
             thisReader.Close();
             ThisConnection.Close();
-            textBox1.Text += res;         
+            textBox1.Text += res;
         }
 
         private void Products_Click(object sender, EventArgs e)
@@ -65,7 +70,14 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-            }
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
+                marker.ToolTipText = Convert.ToString(thisReader["Name"]);
+                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                markers.Markers.Add(marker);
+                gMapControl1.Overlays.Add(markers);
+            }  
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
@@ -80,7 +92,7 @@ namespace VitebskServices
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Развлечения'";
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
-            string res = string.Empty;
+            string res = string.Empty;           
             while (thisReader.Read())
             {
                 res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
@@ -88,17 +100,24 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
+                marker.ToolTipText = Convert.ToString(thisReader["Name"]);
+                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                markers.Markers.Add(marker);
+                gMapControl1.Overlays.Add(markers);
             }
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Text += res;
         }
 
-       
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AddForm newForm = new AddForm();
-            newForm.Show();
+            newForm.ShowDialog();
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
@@ -120,7 +139,7 @@ namespace VitebskServices
 
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gMapControl1.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;
-           
+
         }
 
         private void gMapControl1_MouseUp(object sender, MouseEventArgs e)
@@ -140,5 +159,50 @@ namespace VitebskServices
             .SelectMany(o => o.Markers)
             .FirstOrDefault(m => m.IsMouseOver == true);
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            search = 1;
+            string name = textBox2.Text;
+            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+            ThisConnection.Open();
+            MySqlCommand thisCommand = ThisConnection.CreateCommand();
+            thisCommand.CommandText = String.Format("SELECT * FROM `side` WHERE `Name` = '{0}'", name);
+            MySqlDataReader thisReader = thisCommand.ExecuteReader();
+            string res = string.Empty;
+            while (thisReader.Read())
+            {
+                res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
+                res += ("Адрес: ") + thisReader["Address"] + Environment.NewLine;
+                res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
+                res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
+                res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
+                marker.ToolTipText = Convert.ToString(thisReader["Name"]);
+                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                markers.Markers.Add(marker);
+                Head_Click(sender, e);
+                gMapControl1.Overlays.Add(markers);
+            }
+            thisReader.Close();
+            ThisConnection.Close();
+            textBox1.Clear();
+            textBox1.Text += res;
+            search = 0;
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            DeleteForm newForm = new DeleteForm();
+            newForm.ShowDialog();
+        }
     }
 }
+

@@ -51,6 +51,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,14 +134,16 @@
             // Products
             // 
             this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(168, 22);
+            this.Products.Size = new System.Drawing.Size(180, 22);
             this.Products.Text = "Продукты";
+            this.Products.Click += new System.EventHandler(this.Products_Click);
             // 
             // Entartainment
             // 
             this.Entartainment.Name = "Entartainment";
-            this.Entartainment.Size = new System.Drawing.Size(168, 22);
+            this.Entartainment.Size = new System.Drawing.Size(180, 22);
             this.Entartainment.Text = "Развлечения";
+            this.Entartainment.Click += new System.EventHandler(this.Entartainment_Click);
             // 
             // buttonAdd
             // 
@@ -247,11 +251,34 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "*";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(359, 296);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Пример";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(49, 299);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(216, 17);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "* Обязательно для заполнения";
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 407);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -306,5 +333,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label10;
     }
 }
