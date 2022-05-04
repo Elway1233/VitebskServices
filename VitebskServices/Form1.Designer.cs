@@ -42,6 +42,7 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonDelMark = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -69,21 +70,21 @@
             // Hair
             // 
             this.Hair.Name = "Hair";
-            this.Hair.Size = new System.Drawing.Size(180, 22);
+            this.Hair.Size = new System.Drawing.Size(168, 22);
             this.Hair.Text = "Парикмахерские";
             this.Hair.Click += new System.EventHandler(this.Hair_Click);
             // 
             // Products
             // 
             this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(180, 22);
+            this.Products.Size = new System.Drawing.Size(168, 22);
             this.Products.Text = "Продукты";
             this.Products.Click += new System.EventHandler(this.Products_Click);
             // 
             // Entertainment
             // 
             this.Entertainment.Name = "Entertainment";
-            this.Entertainment.Size = new System.Drawing.Size(180, 22);
+            this.Entertainment.Size = new System.Drawing.Size(168, 22);
             this.Entertainment.Text = "Развлечения";
             this.Entertainment.Click += new System.EventHandler(this.Entertainment_Click);
             // 
@@ -141,7 +142,7 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(260, 3);
+            this.buttonDel.Location = new System.Drawing.Point(235, 3);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(119, 23);
             this.buttonDel.TabIndex = 6;
@@ -151,7 +152,7 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(771, 6);
+            this.buttonSearch.Location = new System.Drawing.Point(1187, 3);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(119, 23);
             this.buttonSearch.TabIndex = 7;
@@ -161,7 +162,7 @@
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(1180, 3);
+            this.buttonExit.Location = new System.Drawing.Point(1195, 549);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(119, 23);
             this.buttonExit.TabIndex = 8;
@@ -172,7 +173,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox2.Location = new System.Drawing.Point(596, 6);
+            this.textBox2.Location = new System.Drawing.Point(1012, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(169, 23);
             this.textBox2.TabIndex = 9;
@@ -181,17 +182,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.Location = new System.Drawing.Point(405, 9);
+            this.label1.Location = new System.Drawing.Point(821, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 15);
             this.label1.TabIndex = 10;
             this.label1.Text = "Введите название для поиска:";
+            // 
+            // buttonDelMark
+            // 
+            this.buttonDelMark.Location = new System.Drawing.Point(360, 3);
+            this.buttonDelMark.Name = "buttonDelMark";
+            this.buttonDelMark.Size = new System.Drawing.Size(144, 23);
+            this.buttonDelMark.TabIndex = 11;
+            this.buttonDelMark.Text = "Удалить все маркеры";
+            this.buttonDelMark.UseVisualStyleBackColor = true;
+            this.buttonDelMark.Click += new System.EventHandler(this.buttonDelMark_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 582);
+            this.Controls.Add(this.buttonDelMark);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.buttonExit);
@@ -229,6 +241,7 @@
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonDelMark;
     }
 }
 
