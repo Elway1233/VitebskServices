@@ -120,25 +120,25 @@
             this.продуктыToolStripMenuItem,
             this.развлеченияToolStripMenuItem});
             this.видыУслугToolStripMenuItem.Name = "видыУслугToolStripMenuItem";
-            this.видыУслугToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.видыУслугToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.видыУслугToolStripMenuItem.Text = "Виды сфер услуг";
             // 
             // парикToolStripMenuItem
             // 
             this.парикToolStripMenuItem.Name = "парикToolStripMenuItem";
-            this.парикToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.парикToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.парикToolStripMenuItem.Text = "Парикмахерская";
             // 
             // продуктыToolStripMenuItem
             // 
             this.продуктыToolStripMenuItem.Name = "продуктыToolStripMenuItem";
-            this.продуктыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.продуктыToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.продуктыToolStripMenuItem.Text = "Продукты";
             // 
             // развлеченияToolStripMenuItem
             // 
             this.развлеченияToolStripMenuItem.Name = "развлеченияToolStripMenuItem";
-            this.развлеченияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.развлеченияToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.развлеченияToolStripMenuItem.Text = "Развлечения";
             // 
             // DeleteForm
@@ -155,6 +155,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DeleteForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeleteForm";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using GMap.NET.WindowsForms;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace VitebskServices
 {
     public partial class Form1 : Form
     {
-        private GMap.NET.WindowsForms.GMapMarker selectedMarker;
+        private GMapMarker selectedMarker;
         public Form1()
         {
             InitializeComponent();
@@ -46,11 +47,11 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работы: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
-                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMapOverlay markers = new GMapOverlay(gMapControl1, "markers");
                 marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
                 marker.ToolTipText = Convert.ToString(thisReader["Name"]);
-                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                marker.ToolTipMode = MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
                 if (search > 0 || del > 0)
@@ -83,11 +84,11 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
-                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMapOverlay markers = new GMapOverlay(gMapControl1, "markers");
                 marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
                 marker.ToolTipText = Convert.ToString(thisReader["Name"]);
-                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                marker.ToolTipMode = MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
                 if (search > 0 || del > 0)
@@ -121,11 +122,11 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
-                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMapOverlay markers = new GMapOverlay(gMapControl1, "markers");
                 marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
                 marker.ToolTipText = Convert.ToString(thisReader["Name"]);
-                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                marker.ToolTipMode = MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 gMapControl1.Overlays.Add(markers);
                 if (search > 0 || del > 0)
@@ -202,11 +203,11 @@ namespace VitebskServices
                 res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
                 res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
                 res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
-                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay(gMapControl1, "markers");
+                GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                GMapOverlay markers = new GMapOverlay(gMapControl1, "markers");
                 marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
                 marker.ToolTipText = Convert.ToString(thisReader["Name"]);
-                marker.ToolTipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always;
+                marker.ToolTipMode = MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
                 Hair_Click(sender, e);
                 gMapControl1.Overlays.Add(markers);
