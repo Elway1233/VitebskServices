@@ -134,21 +134,21 @@
             this.Hair.Checked = true;
             this.Hair.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Hair.Name = "Hair";
-            this.Hair.Size = new System.Drawing.Size(180, 22);
+            this.Hair.Size = new System.Drawing.Size(168, 22);
             this.Hair.Text = "Парикмахерские";
             this.Hair.Click += new System.EventHandler(this.Hair_Click);
             // 
             // Products
             // 
             this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(180, 22);
+            this.Products.Size = new System.Drawing.Size(168, 22);
             this.Products.Text = "Продукты";
             this.Products.Click += new System.EventHandler(this.Products_Click);
             // 
             // Entartainment
             // 
             this.Entartainment.Name = "Entartainment";
-            this.Entartainment.Size = new System.Drawing.Size(180, 22);
+            this.Entartainment.Size = new System.Drawing.Size(168, 22);
             this.Entartainment.Text = "Развлечения";
             this.Entartainment.Click += new System.EventHandler(this.Entartainment_Click);
             // 
