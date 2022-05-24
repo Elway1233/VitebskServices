@@ -44,17 +44,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonDelMark = new System.Windows.Forms.Button();
             this.buttonShowMark = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Services});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1326, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1759, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,44 +67,46 @@
             this.Products,
             this.Entertainment});
             this.Services.Name = "Services";
-            this.Services.Size = new System.Drawing.Size(91, 20);
+            this.Services.Size = new System.Drawing.Size(114, 24);
             this.Services.Text = "Выбор места";
             // 
             // Hair
             // 
             this.Hair.Name = "Hair";
-            this.Hair.Size = new System.Drawing.Size(168, 22);
+            this.Hair.Size = new System.Drawing.Size(210, 26);
             this.Hair.Text = "Парикмахерские";
             this.Hair.Click += new System.EventHandler(this.Hair_Click);
             // 
             // Products
             // 
             this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(168, 22);
+            this.Products.Size = new System.Drawing.Size(210, 26);
             this.Products.Text = "Продукты";
             this.Products.Click += new System.EventHandler(this.Products_Click);
             // 
             // Entertainment
             // 
             this.Entertainment.Name = "Entertainment";
-            this.Entertainment.Size = new System.Drawing.Size(168, 22);
+            this.Entertainment.Size = new System.Drawing.Size(210, 26);
             this.Entertainment.Text = "Развлечения";
             this.Entertainment.Click += new System.EventHandler(this.Entertainment_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(0, 44);
+            this.textBox1.Location = new System.Drawing.Point(2, 54);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(602, 405);
+            this.textBox1.Size = new System.Drawing.Size(801, 614);
             this.textBox1.TabIndex = 1;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(110, 3);
+            this.buttonAdd.Location = new System.Drawing.Point(147, 4);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(119, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(159, 28);
             this.buttonAdd.TabIndex = 3;
             this.buttonAdd.Text = "Добавить место";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -114,7 +118,8 @@
             this.gMapControl1.CanDragMap = true;
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.LevelsKeepInMemmory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(618, 44);
+            this.gMapControl1.Location = new System.Drawing.Point(832, 64);
+            this.gMapControl1.Margin = new System.Windows.Forms.Padding(4);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -125,7 +130,7 @@
             this.gMapControl1.RetryLoadTile = 0;
             this.gMapControl1.RoutesEnabled = true;
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(681, 483);
+            this.gMapControl1.Size = new System.Drawing.Size(895, 584);
             this.gMapControl1.TabIndex = 4;
             this.gMapControl1.Zoom = 0D;
             this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
@@ -134,18 +139,20 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(608, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(811, 54);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(701, 499);
+            this.pictureBox1.Size = new System.Drawing.Size(935, 614);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(235, 3);
+            this.buttonDel.Location = new System.Drawing.Point(313, 4);
+            this.buttonDel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(119, 23);
+            this.buttonDel.Size = new System.Drawing.Size(159, 28);
             this.buttonDel.TabIndex = 6;
             this.buttonDel.Text = "Удалить место";
             this.buttonDel.UseVisualStyleBackColor = true;
@@ -153,9 +160,10 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(1187, 3);
+            this.buttonSearch.Location = new System.Drawing.Point(1583, 4);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(119, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(159, 28);
             this.buttonSearch.TabIndex = 7;
             this.buttonSearch.Text = "Поиск";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -163,9 +171,10 @@
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(1195, 549);
+            this.buttonExit.Location = new System.Drawing.Point(1583, 693);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(119, 23);
+            this.buttonExit.Size = new System.Drawing.Size(159, 28);
             this.buttonExit.TabIndex = 8;
             this.buttonExit.Text = "Выход";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -174,26 +183,29 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox2.Location = new System.Drawing.Point(1012, 3);
+            this.textBox2.Location = new System.Drawing.Point(1349, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 23);
+            this.textBox2.Size = new System.Drawing.Size(224, 26);
             this.textBox2.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.Location = new System.Drawing.Point(821, 6);
+            this.label1.Location = new System.Drawing.Point(1095, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 15);
+            this.label1.Size = new System.Drawing.Size(221, 18);
             this.label1.TabIndex = 10;
             this.label1.Text = "Введите название для поиска:";
             // 
             // buttonDelMark
             // 
-            this.buttonDelMark.Location = new System.Drawing.Point(360, 3);
+            this.buttonDelMark.Location = new System.Drawing.Point(662, 4);
+            this.buttonDelMark.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDelMark.Name = "buttonDelMark";
-            this.buttonDelMark.Size = new System.Drawing.Size(144, 23);
+            this.buttonDelMark.Size = new System.Drawing.Size(192, 28);
             this.buttonDelMark.TabIndex = 11;
             this.buttonDelMark.Text = "Скрыть маркеры";
             this.buttonDelMark.UseVisualStyleBackColor = true;
@@ -201,19 +213,32 @@
             // 
             // buttonShowMark
             // 
-            this.buttonShowMark.Location = new System.Drawing.Point(510, 3);
+            this.buttonShowMark.Location = new System.Drawing.Point(862, 4);
+            this.buttonShowMark.Margin = new System.Windows.Forms.Padding(4);
             this.buttonShowMark.Name = "buttonShowMark";
-            this.buttonShowMark.Size = new System.Drawing.Size(144, 23);
+            this.buttonShowMark.Size = new System.Drawing.Size(192, 28);
             this.buttonShowMark.TabIndex = 12;
             this.buttonShowMark.Text = "Показать маркеры";
             this.buttonShowMark.UseVisualStyleBackColor = true;
             this.buttonShowMark.Click += new System.EventHandler(this.buttonShowMark_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(479, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(176, 28);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Редактировать место";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1326, 582);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1759, 731);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonShowMark);
             this.Controls.Add(this.buttonDelMark);
             this.Controls.Add(this.label1);
@@ -227,7 +252,9 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IS";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -255,6 +282,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonDelMark;
         private System.Windows.Forms.Button buttonShowMark;
+        private System.Windows.Forms.Button button1;
     }
 }
 

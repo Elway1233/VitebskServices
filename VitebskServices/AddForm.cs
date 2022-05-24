@@ -30,7 +30,7 @@ namespace VitebskServices
             else
             {
                 Hair.Checked = true;
-                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
                 ThisConnection.Open();
                 MySqlCommand thisCommand = ThisConnection.CreateCommand();
                 thisCommand.CommandText = "SELECT id FROM side ORDER BY id DESC LIMIT 1";
@@ -43,13 +43,14 @@ namespace VitebskServices
                 ThisConnection.Close();
                 numb = 1;
             }
-            click = click + 1;           
+            click = click + 1;
         }
 
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string name, addres, time, telephone, site;
+            float lati, longti;
             if (numb == 1)
             {
                 id = id + 1;
@@ -58,10 +59,12 @@ namespace VitebskServices
                 telephone = textBox3.Text;
                 time = textBox4.Text;
                 site = textBox5.Text;
-                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+                lati = 0;
+                longti = 0;
+                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
                 ThisConnection.Open();
                 MySqlCommand thisCommand = ThisConnection.CreateCommand();
-                thisCommand.CommandText = String.Format("INSERT INTO `side` (`ID`, `Service`, `Name`, `Address`, `Telephone`, `WorkTime`, `WebSite`) VALUES (000000000{0}, 'Парикмахерская', '{1}', '{2}', {3}, '{4}', '{5}', {6}, {7})", id, name, addres, telephone, time, site);
+                thisCommand.CommandText = String.Format("INSERT INTO `side` (`ID`, `Service`, `Name`, `Address`, `Telephone`, `WorkTime`, `WebSite`,`Latitude`,`Longtitude`) VALUES (000000000{0}, 'Парикмахерская', '{1}', '{2}', {3}, '{4}', '{5}', {6}, {7})", id, name, addres, telephone, time, site, lati, longti);
                 if ((name == string.Empty) || (addres == string.Empty))
                 {
                     MessageBox.Show("Заполните все необходимые поля *");
@@ -72,11 +75,6 @@ namespace VitebskServices
                     thisReader.Close();
                     ThisConnection.Close();
                     MessageBox.Show("Успешно добавлено");
-                    textBox1.Clear();
-                    textBox2.Clear();
-                    textBox3.Clear();
-                    textBox4.Clear();
-                    textBox5.Clear();
                 }
             }
             if (numb == 2)
@@ -87,10 +85,12 @@ namespace VitebskServices
                 telephone = textBox3.Text;
                 time = textBox4.Text;
                 site = textBox5.Text;
-                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+                lati = 0;
+                longti = 0;
+                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
                 ThisConnection.Open();
                 MySqlCommand thisCommand = ThisConnection.CreateCommand();
-                thisCommand.CommandText = String.Format("INSERT INTO `side` (`ID`, `Service`, `Name`, `Address`, `Telephone`, `WorkTime`, `WebSite`) VALUES (000000000{0}, 'Продукты', '{1}', '{2}', {3}, '{4}', '{5}', {6}, {7})", id, name, addres, telephone, time, site);
+                thisCommand.CommandText = String.Format("INSERT INTO `side` (`ID`, `Service`, `Name`, `Address`, `Telephone`, `WorkTime`, `WebSite`,`Latitude`,`Longtitude`) VALUES (000000000{0}, 'Продукты', '{1}', '{2}', {3}, '{4}', '{5}', {6}, {7})", id, name, addres, telephone, time, site, lati, longti);
                 if ((name == string.Empty) || (addres == string.Empty))
                 {
                     MessageBox.Show("Заполните все необходимые поля *");
@@ -102,11 +102,6 @@ namespace VitebskServices
                     ThisConnection.Close();
                     MessageBox.Show("Успешно добавлено");
                 }
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
-                textBox5.Clear();
             }
             if (numb == 3)
             {
@@ -116,10 +111,12 @@ namespace VitebskServices
                 telephone = textBox3.Text;
                 time = textBox4.Text;
                 site = textBox5.Text;
-                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+                lati = 0;
+                longti = 0;
+                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
                 ThisConnection.Open();
                 MySqlCommand thisCommand = ThisConnection.CreateCommand();
-                thisCommand.CommandText = String.Format("INSERT INTO `side` (`ID`, `Service`, `Name`, `Address`, `Telephone`, `WorkTime`, `WebSite`) VALUES (000000000{0}, 'Развлечения', '{1}', '{2}', {3}, '{4}', '{5}', {6}, {7})", id, name, addres, telephone, time, site);
+                thisCommand.CommandText = String.Format("INSERT INTO `side` (`ID`, `Service`, `Name`, `Address`, `Telephone`, `WorkTime`, `WebSite`,`Latitude`,`Longtitude`) VALUES (000000000{0}, 'Развлечения', '{1}', '{2}', +375{3}, '{4}', '{5}', {6}, {7})", id, name, addres, telephone, time, site, lati, longti);
                 if ((name == string.Empty) || (addres == string.Empty))
                 {
                     MessageBox.Show("Заполните все необходимые поля *");
@@ -131,11 +128,7 @@ namespace VitebskServices
                     ThisConnection.Close();
                     MessageBox.Show("Успешно добавлено");
                 }
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
-                textBox5.Clear();
+                Close();
             }
         }
 
@@ -146,7 +139,7 @@ namespace VitebskServices
 
         private void Products_Click(object sender, EventArgs e)
         {
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT id FROM side ORDER BY id DESC LIMIT 1";
@@ -162,7 +155,7 @@ namespace VitebskServices
 
         private void Entartainment_Click(object sender, EventArgs e)
         {
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT id FROM side ORDER BY id DESC LIMIT 1";
@@ -184,7 +177,7 @@ namespace VitebskServices
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
             string c = textBox1.Text;
-            if (!Regex.Match(c, @"[a-zA-Z]|,|\.|@|[0-9]").Success && c.Length > 0 && c.Length < 50)
+            if (c.Length >= 0 && c.Length < 25)
             {
                 e.Cancel = false;
                 textBox1.ForeColor = Color.Black;
@@ -195,14 +188,14 @@ namespace VitebskServices
                 textBox1.ForeColor = Color.Red;
                 e.Cancel = true;
                 textBox1.Focus();
-                errorProvider1.SetError(textBox1, "Используйте кириллицу!");
+                errorProvider1.SetError(textBox1, "Допустимый диапазон 25 символов");
             }
         }
 
         private void textBox2_Validating(object sender, CancelEventArgs e)
         {
             string c = textBox2.Text;
-            if (!Regex.Match(c, @"[a-zA-Z]|,|\.|@").Success && c.Length > 0 && c.Length < 50)
+            if (c.Length >= 0 && c.Length < 50)
             {
                 e.Cancel = false;
                 textBox2.ForeColor = Color.Black;
@@ -213,8 +206,38 @@ namespace VitebskServices
                 e.Cancel = true;
                 textBox2.ForeColor = Color.Red;
                 textBox2.Focus();
-                errorProvider2.SetError(textBox2, "Используйте кириллицу!");
+                errorProvider2.SetError(textBox2, "");
             }
         }
+
+        private void textBox3_Validating(object sender, CancelEventArgs e)
+        {
+            string c = textBox3.Text;
+            if (c.Length >= 0 && c.Length < 12)
+            {
+                e.Cancel = false;
+                textBox3.ForeColor = Color.Black;
+                errorProvider2.SetError(textBox3, "");
+                
+            }
+            else
+            {
+                e.Cancel = true;
+                textBox3.ForeColor = Color.Red;
+                textBox3.Focus();
+                errorProvider2.SetError(textBox3, "Неккоректное значение");
+            }          
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+                if (!Char.IsDigit(number) && number != 8)
+                {
+                    e.Handled = true;
+                }
+        }
+
+
     }
 }

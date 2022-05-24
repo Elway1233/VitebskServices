@@ -34,7 +34,7 @@ namespace VitebskServices
             ent = 0;
             show = 1;
             textBox1.Clear();
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Парикмахерская'";
@@ -71,7 +71,7 @@ namespace VitebskServices
             ent = 0;
             show = 2;
             textBox1.Clear();
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Продукты'";
@@ -109,7 +109,7 @@ namespace VitebskServices
             prod = 0;
             show = 3;
             textBox1.Clear();
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
             thisCommand.CommandText = "SELECT * FROM `side` WHERE `Service` = 'Развлечения'";
@@ -190,10 +190,11 @@ namespace VitebskServices
         {
             search = 1;
             string name = textBox2.Text;
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+            string address = textBox2.Text;
+            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = String.Format("SELECT * FROM `side` WHERE `Name` = '{0}'", name);
+            thisCommand.CommandText = String.Format("SELECT * FROM `side` WHERE `Name` = '{0}' OR `Address` = '{1}'", name,address);
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
             while (thisReader.Read())
@@ -277,6 +278,12 @@ namespace VitebskServices
                 prod = 0;
                 ent = 1;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EditForm newForm = new EditForm();
+            newForm.ShowDialog();
         }
     }
 }

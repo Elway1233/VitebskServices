@@ -25,7 +25,7 @@ namespace VitebskServices
             DialogResult result = MessageBox.Show("Вы действительно хотите удалить?", "Подтвердите действие", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3307;username=root;password=root;database=is");
+                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
                 ThisConnection.Open();
                 MySqlCommand thisCommand = ThisConnection.CreateCommand();
                 thisCommand.CommandText = String.Format("DELETE FROM `side` WHERE `side`.`Name` = '{0}' AND `Service` = '{1}';", name, service);
@@ -36,7 +36,7 @@ namespace VitebskServices
             {
 
             }
-            
+            Close();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
