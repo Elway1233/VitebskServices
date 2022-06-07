@@ -18,16 +18,14 @@ namespace VitebskServices
         {
             InitializeComponent();
 
-
         }
-
-        private void buttonClose_Click(object sender, EventArgs e)
+        string name;
+        public void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string name;
             name = comboBox1.SelectedItem.ToString();
             if (name != null)
             {
@@ -92,24 +90,6 @@ namespace VitebskServices
             Close();
         }
 
-        private void textBox3_Validating(object sender, CancelEventArgs e)
-        {
-            string c = textBox3.Text;
-            if (c.Length >= 0 && c.Length < 13)
-            {
-                e.Cancel = false;
-                textBox3.ForeColor = Color.Black;
-                errorProvider2.SetError(textBox3, "");
-
-            }
-            else
-            {
-                e.Cancel = true;
-                textBox3.ForeColor = Color.Red;
-                textBox3.Focus();
-                errorProvider2.SetError(textBox3, "Неккоректное значение");
-            }
-        }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -137,11 +117,10 @@ namespace VitebskServices
                 errorProvider1.SetError(textBox1, "Допустимый диапазон 25 символов");
             }
         }
-
         private void textBox2_Validating(object sender, CancelEventArgs e)
         {
             string c = textBox2.Text;
-            if (c.Length >= 0 && c.Length < 50)
+            if (c.Length >= 1 && c.Length < 50)
             {
                 e.Cancel = false;
                 textBox2.ForeColor = Color.Black;
@@ -152,7 +131,65 @@ namespace VitebskServices
                 e.Cancel = true;
                 textBox2.ForeColor = Color.Red;
                 textBox2.Focus();
-                errorProvider2.SetError(textBox2, "");
+                errorProvider2.SetError(textBox2, "Недопустимый диапазон");
+            }
+            if (textBox2.Text == string.Empty)
+            {
+                textBox2.ForeColor = Color.Red;
+                e.Cancel = true;
+                textBox2.Focus();
+                errorProvider2.SetError(textBox2, "Поле не может быть пустым");
+            }
+        }
+        private void textBox3_Validating(object sender, CancelEventArgs e)
+        {
+            string c = textBox3.Text;
+            if (c.Length >= 1 && c.Length < 12)
+            {
+                e.Cancel = false;
+                textBox3.ForeColor = Color.Black;
+                errorProvider2.SetError(textBox3, "");
+
+            }
+            else
+            {
+                e.Cancel = true;
+                textBox3.ForeColor = Color.Red;
+                textBox3.Focus();
+                errorProvider2.SetError(textBox3, "Неккоректное значение");
+            }
+            if (textBox3.Text == string.Empty)
+            {
+                textBox3.ForeColor = Color.Red;
+                e.Cancel = true;
+                textBox3.Focus();
+                errorProvider2.SetError(textBox3, "Поле не может быть пустым");
+            }
+        }
+
+        private void textBox6_Validating(object sender, CancelEventArgs e)
+        {
+            string c = textBox6.Text;
+            if (c.Length >= 1 && c.Length < 25)
+            {
+                e.Cancel = false;
+                textBox6.ForeColor = Color.Black;
+                errorProvider2.SetError(textBox6, "");
+
+            }
+            else
+            {
+                e.Cancel = true;
+                textBox6.ForeColor = Color.Red;
+                textBox6.Focus();
+                errorProvider2.SetError(textBox6, "Неккоректное значение");
+            }
+            if (textBox6.Text == string.Empty)
+            {
+                textBox6.ForeColor = Color.Red;
+                e.Cancel = true;
+                textBox6.Focus();
+                errorProvider2.SetError(textBox6, "Поле не может быть пустым");
             }
         }
     }

@@ -153,6 +153,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(445, 22);
             this.textBox2.TabIndex = 22;
+            this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
             // 
             // textBox1
             // 
@@ -174,9 +175,9 @@
             // 
             // Get
             // 
-            this.Get.Location = new System.Drawing.Point(273, 13);
+            this.Get.Location = new System.Drawing.Point(273, 12);
             this.Get.Name = "Get";
-            this.Get.Size = new System.Drawing.Size(189, 23);
+            this.Get.Size = new System.Drawing.Size(189, 24);
             this.Get.TabIndex = 38;
             this.Get.Text = "Получить названия";
             this.Get.UseVisualStyleBackColor = true;
@@ -199,6 +200,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(445, 22);
             this.textBox6.TabIndex = 40;
+            this.textBox6.Validating += new System.ComponentModel.CancelEventHandler(this.textBox6_Validating);
             // 
             // label5
             // 
@@ -233,6 +235,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "EditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Редактирование";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

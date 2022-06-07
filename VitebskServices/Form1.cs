@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace VitebskServices
 {
@@ -194,7 +195,7 @@ namespace VitebskServices
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = String.Format("SELECT * FROM `side` WHERE `Name` = '{0}' OR `Address` = '{1}'", name,address);
+            thisCommand.CommandText = String.Format("SELECT * FROM `side` WHERE `Name` = '{0}' OR `Address` LIKE '{1}%'", name,address);
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
             while (thisReader.Read())
@@ -210,7 +211,6 @@ namespace VitebskServices
                 marker.ToolTipText = Convert.ToString(thisReader["Name"]);
                 marker.ToolTipMode = MarkerTooltipMode.Always;
                 markers.Markers.Add(marker);
-                Hair_Click(sender, e);
                 gMapControl1.Overlays.Add(markers);
             }
             thisReader.Close();
@@ -280,6 +280,7 @@ namespace VitebskServices
             }
         }
 
+       
         private void button1_Click(object sender, EventArgs e)
         {
             EditForm newForm = new EditForm();

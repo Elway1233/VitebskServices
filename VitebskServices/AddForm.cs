@@ -20,10 +20,10 @@ namespace VitebskServices
         }
         int numb = 0;
         int id = 0;
-        int click = 1;
+        int clickHair = 1, clickProd = 1, clickEnt = 1;
         private void Hair_Click(object sender, EventArgs e)
         {
-            if (click % 2 == 1)
+            if (clickHair % 2 == 1)
             {
                 Hair.Checked = false;
             }
@@ -43,7 +43,7 @@ namespace VitebskServices
                 ThisConnection.Close();
                 numb = 1;
             }
-            click = click + 1;
+            clickHair = clickHair + 1;
         }
 
 
@@ -68,6 +68,9 @@ namespace VitebskServices
                 if ((name == string.Empty) || (addres == string.Empty))
                 {
                     MessageBox.Show("Заполните все необходимые поля *");
+                    textBox1.ForeColor = Color.Red;
+                    textBox2.ForeColor = Color.Red;
+                    textBox3.ForeColor = Color.Red;
                 }
                 else
                 {
@@ -75,6 +78,7 @@ namespace VitebskServices
                     thisReader.Close();
                     ThisConnection.Close();
                     MessageBox.Show("Успешно добавлено");
+                    Close();
                 }
             }
             if (numb == 2)
@@ -94,6 +98,9 @@ namespace VitebskServices
                 if ((name == string.Empty) || (addres == string.Empty))
                 {
                     MessageBox.Show("Заполните все необходимые поля *");
+                    textBox1.ForeColor = Color.Red;
+                    textBox2.ForeColor = Color.Red;
+                    textBox3.ForeColor = Color.Red;
                 }
                 else
                 {
@@ -101,6 +108,7 @@ namespace VitebskServices
                     thisReader.Close();
                     ThisConnection.Close();
                     MessageBox.Show("Успешно добавлено");
+                    Close();
                 }
             }
             if (numb == 3)
@@ -120,6 +128,9 @@ namespace VitebskServices
                 if ((name == string.Empty) || (addres == string.Empty))
                 {
                     MessageBox.Show("Заполните все необходимые поля *");
+                    textBox1.ForeColor = Color.Red;
+                    textBox2.ForeColor = Color.Red;
+                    textBox3.ForeColor = Color.Red;
                 }
                 else
                 {
@@ -127,8 +138,8 @@ namespace VitebskServices
                     thisReader.Close();
                     ThisConnection.Close();
                     MessageBox.Show("Успешно добавлено");
+                    Close();
                 }
-                Close();
             }
         }
 
@@ -139,34 +150,52 @@ namespace VitebskServices
 
         private void Products_Click(object sender, EventArgs e)
         {
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
-            ThisConnection.Open();
-            MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = "SELECT id FROM side ORDER BY id DESC LIMIT 1";
-            MySqlDataReader thisReader = thisCommand.ExecuteReader();
-            while (thisReader.Read())
+            if (clickProd % 2 == 1)
             {
-                id = Convert.ToInt16(thisReader["id"]);
+                Products.Checked = false;
             }
-            thisReader.Close();
-            ThisConnection.Close();
-            numb = 2;
+            else
+            {
+                Products.Checked = true;
+                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
+                ThisConnection.Open();
+                MySqlCommand thisCommand = ThisConnection.CreateCommand();
+                thisCommand.CommandText = "SELECT id FROM side ORDER BY id DESC LIMIT 1";
+                MySqlDataReader thisReader = thisCommand.ExecuteReader();
+                while (thisReader.Read())
+                {
+                    id = Convert.ToInt16(thisReader["id"]);
+                }
+                thisReader.Close();
+                ThisConnection.Close();
+                numb = 2;
+            }
+            clickProd = clickProd + 1;
         }
 
         private void Entartainment_Click(object sender, EventArgs e)
         {
-            MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
-            ThisConnection.Open();
-            MySqlCommand thisCommand = ThisConnection.CreateCommand();
-            thisCommand.CommandText = "SELECT id FROM side ORDER BY id DESC LIMIT 1";
-            MySqlDataReader thisReader = thisCommand.ExecuteReader();
-            while (thisReader.Read())
+            if (clickEnt % 2 == 1)
             {
-                id = Convert.ToInt16(thisReader["id"]);
+                Entartainment.Checked = false;
             }
-            thisReader.Close();
-            ThisConnection.Close();
-            numb = 3;
+            else
+            {
+                Entartainment.Checked = true;
+                MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
+                ThisConnection.Open();
+                MySqlCommand thisCommand = ThisConnection.CreateCommand();
+                thisCommand.CommandText = "SELECT id FROM side ORDER BY id DESC LIMIT 1";
+                MySqlDataReader thisReader = thisCommand.ExecuteReader();
+                while (thisReader.Read())
+                {
+                    id = Convert.ToInt16(thisReader["id"]);
+                }
+                thisReader.Close();
+                ThisConnection.Close();
+                numb = 3;
+            }
+            clickEnt = clickEnt + 1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -177,7 +206,7 @@ namespace VitebskServices
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
             string c = textBox1.Text;
-            if (c.Length >= 0 && c.Length < 25)
+            if (c.Length >= 1 && c.Length < 25)
             {
                 e.Cancel = false;
                 textBox1.ForeColor = Color.Black;
@@ -190,12 +219,19 @@ namespace VitebskServices
                 textBox1.Focus();
                 errorProvider1.SetError(textBox1, "Допустимый диапазон 25 символов");
             }
+            if (textBox1.Text == string.Empty)
+            {
+                textBox1.ForeColor = Color.Red;
+                e.Cancel = true;
+                textBox1.Focus();
+                errorProvider1.SetError(textBox1, "Поле не может быть пустым");
+            }
         }
 
         private void textBox2_Validating(object sender, CancelEventArgs e)
         {
             string c = textBox2.Text;
-            if (c.Length >= 0 && c.Length < 50)
+            if (c.Length >= 1 && c.Length < 50)
             {
                 e.Cancel = false;
                 textBox2.ForeColor = Color.Black;
@@ -206,14 +242,21 @@ namespace VitebskServices
                 e.Cancel = true;
                 textBox2.ForeColor = Color.Red;
                 textBox2.Focus();
-                errorProvider2.SetError(textBox2, "");
+                errorProvider2.SetError(textBox2, "Недопустимый диапазон");
+            }
+            if (textBox2.Text == string.Empty)
+            {
+                textBox2.ForeColor = Color.Red;
+                e.Cancel = true;
+                textBox2.Focus();
+                errorProvider2.SetError(textBox2, "Поле не может быть пустым");
             }
         }
 
         private void textBox3_Validating(object sender, CancelEventArgs e)
         {
             string c = textBox3.Text;
-            if (c.Length >= 0 && c.Length < 12)
+            if (c.Length >= 1 && c.Length < 12)
             {
                 e.Cancel = false;
                 textBox3.ForeColor = Color.Black;
@@ -226,7 +269,14 @@ namespace VitebskServices
                 textBox3.ForeColor = Color.Red;
                 textBox3.Focus();
                 errorProvider2.SetError(textBox3, "Неккоректное значение");
-            }          
+            }
+            if (textBox3.Text == string.Empty)
+            {
+                textBox3.ForeColor = Color.Red;
+                e.Cancel = true;
+                textBox3.Focus();
+                errorProvider2.SetError(textBox3, "Поле не может быть пустым");
+            }
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)

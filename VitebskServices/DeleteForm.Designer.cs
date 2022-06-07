@@ -45,16 +45,18 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 33);
+            this.textBox1.Location = new System.Drawing.Point(192, 41);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 20);
+            this.textBox1.Size = new System.Drawing.Size(205, 22);
             this.textBox1.TabIndex = 0;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(15, 149);
+            this.buttonDelete.Location = new System.Drawing.Point(20, 183);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(91, 22);
+            this.buttonDelete.Size = new System.Drawing.Size(121, 27);
             this.buttonDelete.TabIndex = 1;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -62,9 +64,10 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(218, 148);
+            this.buttonClose.Location = new System.Drawing.Point(291, 182);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(94, 23);
+            this.buttonClose.Size = new System.Drawing.Size(125, 28);
             this.buttonClose.TabIndex = 2;
             this.buttonClose.Text = "Закрыть";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -73,35 +76,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Location = new System.Drawing.Point(16, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.Size = new System.Drawing.Size(133, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Введите название:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 76);
+            this.label2.Location = new System.Drawing.Point(16, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 13);
+            this.label2.Size = new System.Drawing.Size(151, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Введите сферу услуг:";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(144, 73);
+            this.textBox2.Location = new System.Drawing.Point(192, 90);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 20);
+            this.textBox2.Size = new System.Drawing.Size(205, 22);
             this.textBox2.TabIndex = 4;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(333, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(444, 30);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -110,7 +117,7 @@
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.видыУслугToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // видыУслугToolStripMenuItem
@@ -120,32 +127,32 @@
             this.продуктыToolStripMenuItem,
             this.развлеченияToolStripMenuItem});
             this.видыУслугToolStripMenuItem.Name = "видыУслугToolStripMenuItem";
-            this.видыУслугToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.видыУслугToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.видыУслугToolStripMenuItem.Text = "Виды сфер услуг";
             // 
             // парикToolStripMenuItem
             // 
             this.парикToolStripMenuItem.Name = "парикToolStripMenuItem";
-            this.парикToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.парикToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.парикToolStripMenuItem.Text = "Парикмахерская";
             // 
             // продуктыToolStripMenuItem
             // 
             this.продуктыToolStripMenuItem.Name = "продуктыToolStripMenuItem";
-            this.продуктыToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.продуктыToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.продуктыToolStripMenuItem.Text = "Продукты";
             // 
             // развлеченияToolStripMenuItem
             // 
             this.развлеченияToolStripMenuItem.Name = "развлеченияToolStripMenuItem";
-            this.развлеченияToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.развлеченияToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.развлеченияToolStripMenuItem.Text = "Развлечения";
             // 
             // DeleteForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 202);
+            this.ClientSize = new System.Drawing.Size(444, 249);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
@@ -154,9 +161,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DeleteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DeleteForm";
+            this.Text = "Удаление";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
