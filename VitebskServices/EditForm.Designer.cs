@@ -122,9 +122,9 @@
             this.label2.Location = new System.Drawing.Point(9, 169);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.Size = new System.Drawing.Size(50, 16);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Адресс:";
+            this.label2.Text = "Адрес:";
             // 
             // label1
             // 

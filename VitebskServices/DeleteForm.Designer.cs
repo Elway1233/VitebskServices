@@ -35,18 +35,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.видыУслугToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.парикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продуктыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.развлеченияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 41);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(192, 54);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(205, 22);
             this.textBox1.TabIndex = 0;
@@ -54,7 +52,7 @@
             // buttonDelete
             // 
             this.buttonDelete.Location = new System.Drawing.Point(20, 183);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(121, 27);
             this.buttonDelete.TabIndex = 1;
@@ -65,7 +63,7 @@
             // buttonClose
             // 
             this.buttonClose.Location = new System.Drawing.Point(291, 182);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(125, 28);
             this.buttonClose.TabIndex = 2;
@@ -76,27 +74,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 44);
+            this.label1.Location = new System.Drawing.Point(17, 54);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 16);
+            this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Введите название:";
+            this.label1.Text = "Название:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 94);
+            this.label2.Location = new System.Drawing.Point(17, 134);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 16);
+            this.label2.Size = new System.Drawing.Size(94, 16);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Введите сферу услуг:";
+            this.label2.Text = "Сфера услуг:";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(192, 90);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(192, 134);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(205, 22);
             this.textBox2.TabIndex = 4;
@@ -104,55 +102,58 @@
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(444, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(444, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // справкаToolStripMenuItem
+            // comboBox1
             // 
-            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.видыУслугToolStripMenuItem});
-            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
-            this.справкаToolStripMenuItem.Text = "Справка";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(16, 12);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // видыУслугToolStripMenuItem
+            // button1
             // 
-            this.видыУслугToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.парикToolStripMenuItem,
-            this.продуктыToolStripMenuItem,
-            this.развлеченияToolStripMenuItem});
-            this.видыУслугToolStripMenuItem.Name = "видыУслугToolStripMenuItem";
-            this.видыУслугToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
-            this.видыУслугToolStripMenuItem.Text = "Виды сфер услуг";
+            this.button1.Location = new System.Drawing.Point(160, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 24);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Получить места";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // парикToolStripMenuItem
+            // textBox3
             // 
-            this.парикToolStripMenuItem.Name = "парикToolStripMenuItem";
-            this.парикToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.парикToolStripMenuItem.Text = "Парикмахерская";
+            this.textBox3.Location = new System.Drawing.Point(192, 94);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(205, 22);
+            this.textBox3.TabIndex = 9;
             // 
-            // продуктыToolStripMenuItem
+            // label3
             // 
-            this.продуктыToolStripMenuItem.Name = "продуктыToolStripMenuItem";
-            this.продуктыToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.продуктыToolStripMenuItem.Text = "Продукты";
-            // 
-            // развлеченияToolStripMenuItem
-            // 
-            this.развлеченияToolStripMenuItem.Name = "развлеченияToolStripMenuItem";
-            this.развлеченияToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
-            this.развлеченияToolStripMenuItem.Text = "Развлечения";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 94);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 16);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Адрес:";
             // 
             // DeleteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 249);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
@@ -161,12 +162,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeleteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Удаление";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,10 +180,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem видыУслугToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem парикToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem продуктыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem развлеченияToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -56,7 +56,7 @@
             this.Services});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1759, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1787, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -103,7 +103,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(147, 4);
+            this.buttonAdd.Location = new System.Drawing.Point(129, 4);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(159, 28);
@@ -130,7 +130,7 @@
             this.gMapControl1.RetryLoadTile = 0;
             this.gMapControl1.RoutesEnabled = true;
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(895, 584);
+            this.gMapControl1.Size = new System.Drawing.Size(928, 584);
             this.gMapControl1.TabIndex = 4;
             this.gMapControl1.Zoom = 0D;
             this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
@@ -142,14 +142,14 @@
             this.pictureBox1.Location = new System.Drawing.Point(811, 54);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(935, 614);
+            this.pictureBox1.Size = new System.Drawing.Size(963, 614);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(313, 4);
+            this.buttonDel.Location = new System.Drawing.Point(296, 4);
             this.buttonDel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(159, 28);
@@ -160,7 +160,7 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(1583, 4);
+            this.buttonSearch.Location = new System.Drawing.Point(1615, 4);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(159, 28);
@@ -183,7 +183,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox2.Location = new System.Drawing.Point(1349, 4);
+            this.textBox2.Location = new System.Drawing.Point(1383, 4);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(224, 26);
@@ -193,16 +193,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.Location = new System.Drawing.Point(1095, 7);
+            this.label1.Location = new System.Drawing.Point(1045, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 18);
+            this.label1.Size = new System.Drawing.Size(295, 18);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Введите название для поиска:";
+            this.label1.Text = "Введите название или адрес для поиска:";
             // 
             // buttonDelMark
             // 
-            this.buttonDelMark.Location = new System.Drawing.Point(662, 4);
+            this.buttonDelMark.Location = new System.Drawing.Point(645, 4);
             this.buttonDelMark.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDelMark.Name = "buttonDelMark";
             this.buttonDelMark.Size = new System.Drawing.Size(192, 28);
@@ -213,7 +213,7 @@
             // 
             // buttonShowMark
             // 
-            this.buttonShowMark.Location = new System.Drawing.Point(862, 4);
+            this.buttonShowMark.Location = new System.Drawing.Point(845, 4);
             this.buttonShowMark.Margin = new System.Windows.Forms.Padding(4);
             this.buttonShowMark.Name = "buttonShowMark";
             this.buttonShowMark.Size = new System.Drawing.Size(192, 28);
@@ -224,7 +224,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(479, 4);
+            this.button1.Location = new System.Drawing.Point(462, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 28);
             this.button1.TabIndex = 13;
@@ -237,7 +237,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1759, 731);
+            this.ClientSize = new System.Drawing.Size(1787, 731);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonShowMark);
             this.Controls.Add(this.buttonDelMark);

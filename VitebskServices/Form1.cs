@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using System.Runtime.InteropServices;
 namespace VitebskServices
 {
     public partial class Form1 : Form
@@ -198,26 +198,43 @@ namespace VitebskServices
             thisCommand.CommandText = String.Format("SELECT * FROM `side` WHERE `Name` = '{0}' OR `Address` LIKE '{1}%'", name,address);
             MySqlDataReader thisReader = thisCommand.ExecuteReader();
             string res = string.Empty;
-            while (thisReader.Read())
+            if (name == string.Empty)
             {
-                res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
-                res += ("Адрес: ") + thisReader["Address"] + Environment.NewLine;
-                res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
-                res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
-                res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
-                GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
-                GMapOverlay markers = new GMapOverlay(gMapControl1, "markers");
-                marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
-                marker.ToolTipText = Convert.ToString(thisReader["Name"]);
-                marker.ToolTipMode = MarkerTooltipMode.Always;
-                markers.Markers.Add(marker);
-                gMapControl1.Overlays.Add(markers);
+                MessageBox.Show("Заполните необходимое поле");
+                textBox2.Focus();
+
+            }
+            else
+            {
+                while (thisReader.Read())
+                {
+                    res += ("Название: ") + thisReader["Name"] + Environment.NewLine;
+                    res += ("Адрес: ") + thisReader["Address"] + Environment.NewLine;
+                    res += ("Номер телефона: ") + thisReader["Telephone"] + Environment.NewLine;
+                    res += ("График работ: ") + thisReader["WorkTime"] + Environment.NewLine;
+                    res += ("Сайт: ") + thisReader["WebSite"] + Environment.NewLine + Environment.NewLine;
+                    GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new GMap.NET.PointLatLng(Convert.ToDouble(thisReader["latitude"]), Convert.ToDouble(thisReader["longtitude"])));
+                    GMapOverlay markers = new GMapOverlay(gMapControl1, "markers");
+                    marker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
+                    marker.ToolTipText = Convert.ToString(thisReader["Name"]);
+                    marker.ToolTipMode = MarkerTooltipMode.Always;
+                    markers.Markers.Add(marker);
+                    gMapControl1.Overlays.Add(markers);
+
+                }
+                if (res == string.Empty)
+                {
+                    MessageBox.Show("По вашему запросу ничего не найдено");
+                }
             }
             thisReader.Close();
             ThisConnection.Close();
             textBox1.Clear();
             textBox1.Text += res;
             search = 0;
+
+
+
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

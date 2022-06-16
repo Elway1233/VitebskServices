@@ -48,6 +48,7 @@ namespace VitebskServices
 
         private void Get_Click(object sender, EventArgs e)
         {
+            comboBox1.Items.Clear();
             MySqlConnection ThisConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=is");
             ThisConnection.Open();
             MySqlCommand thisCommand = ThisConnection.CreateCommand();
